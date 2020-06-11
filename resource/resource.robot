@@ -1,5 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
+Library    String
 #Library    BuiltIn
 
 *** Variables ***
@@ -73,7 +74,8 @@ Clicar no botão "Sign in"
     Click Element                     xpath=//*[@id="header"]/div[2]/div/div/nav/div[1]/a
 
 Inserir um e-mail válido
-    ${EMAIL_VALIDO}                   Generate Random String
+    Wait Until Element Is Visible     id=email_create
+    ${EMAIL_VALIDO}                   Generate Random String                       10    [LOWER]
     Input Text                        xpath=//*[@id="email_create"]                ${EMAIL_VALIDO}@testrobot.com
 
 Clicar no botão "Create an account"
@@ -84,7 +86,8 @@ Preencher os campos obrigatórios
     Select Radio Button               id_gender        1
     Input Text                        xpath=//*[@id="customer_firstname"]          Juan
     Input Text                        xpath=//*[@id="customer_lastname"]           Torena
-    Input Text                        xpath=//*[@id="passwd"]                      123456
+    ${PASSWORD}                       Generate Random String                       6    [NUMBERS]
+    Input Text                        xpath=//*[@id="passwd"]                      ${PASSWORD}
     Click Element                     xpath=//*[@id="days"]//*[@value="7"]
     Click Element                     xpath=//*[@id="months"]//*[@value="10"]
     Click Element                     xpath=//*[@id="years"]//*[@value="1990"]
