@@ -48,7 +48,7 @@ Caso de Teste 06: Adicionar Cliente
     [Tags]    caso06
     Acessar a página home do site
     Clicar no botão "Sign in"
-    Inserir um e-mail "absxz@gmail.com" válido
+    Inserir um e-mail válido
     Clicar no botão "Create an account"
     Preencher os campos obrigatórios
     Clicar em "Register" para finalizar o cadastro

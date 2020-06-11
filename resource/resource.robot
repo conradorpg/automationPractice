@@ -72,8 +72,9 @@ Conferir se mensagem "${MENSAGEM_CART_EMPTY}" foi exibida
 Clicar no botão "Sign in"
     Click Element                     xpath=//*[@id="header"]/div[2]/div/div/nav/div[1]/a
 
-Inserir um e-mail "${EMAIL_VALIDO}" válido
-    Input Text                        xpath=//*[@id="email_create"]                ${EMAIL_VALIDO}
+Inserir um e-mail válido
+    ${EMAIL_VALIDO}                   Generate Random String
+    Input Text                        xpath=//*[@id="email_create"]                ${EMAIL_VALIDO}@testrobot.com
 
 Clicar no botão "Create an account"
     Click Element                     xpath=//*[@id="SubmitCreate"]/span
